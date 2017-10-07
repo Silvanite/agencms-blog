@@ -37,7 +37,7 @@ class BlogServiceProvider extends ServiceProvider
 
     /**
      * Register router middleware as plugin for Agencms. This will include all
-     * user related admin screen and endpoints in the CMS.
+     * blog functionality in the CMS.
      *
      * @param Router $router
      * @return void
