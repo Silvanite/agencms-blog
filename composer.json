@@ -1,0 +1,22 @@
+{
+    "name": "silvanite/agencmsblog",
+    "description": "Agencms Blog Plugin",
+    "authors": [
+        {
+            "name": "Marco Mark",
+            "email": "marco@silvanite.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.0@dev"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Silvanite\\AgencmsBlog\\BlogServiceProvider"
+            ]
+        }
+    }
+}
