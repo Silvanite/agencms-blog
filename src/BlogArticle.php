@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Gate;
 use Silvanite\AgencmsBlog\BlogCategory;
 use Silvanite\Agencms\Traits\HasRepeaterFields;
 use Silvanite\Agencms\Traits\HasImages;
-use Silvanite\Agencms\Events\SaveImage;
 use App\User;
 
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -86,10 +85,5 @@ class BlogArticle extends Model implements hasMedia
     public function getCategoriesAttribute()
     {
         return $this->attachedCategories->pluck(['id']);
-    }
-
-    public function saveRepeaterImages()
-    {
-        return $this->processRepeatersForSaving();
     }
 }
