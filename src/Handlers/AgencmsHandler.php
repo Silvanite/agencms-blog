@@ -4,7 +4,7 @@ namespace Silvanite\AgencmsBlog\Handlers;
 
 use Illuminate\Support\Facades\Auth;
 use Gate;
-use Agencms;
+use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
 use Silvanite\Agencms\Route;
 use Silvanite\Agencms\Field;
 use Silvanite\Agencms\Group;
