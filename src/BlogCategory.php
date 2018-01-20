@@ -5,17 +5,10 @@ namespace Silvanite\AgencmsBlog;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
-
-use Silvanite\Agencms\Traits\HasImages;
-
 use BlogArticle;
 
-class BlogCategory extends Model implements HasMedia
+class BlogCategory extends Model
 {
-    use HasImages, HasMediaTrait;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -27,11 +20,8 @@ class BlogCategory extends Model implements HasMedia
         'description',
         'published',
         'meta_title',
-        'meta_description'
-    ];
-
-    protected $images = [
-        'featuredimage'
+        'meta_description',
+        'featuredimage',
     ];
 
     /**

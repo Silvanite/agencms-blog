@@ -36,9 +36,7 @@ class BlogArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $blogArticle = BlogArticle::make($request->all());
-
-        $blogArticle->processRepeatersForSaving()->processImagesForSaving()->save();
+        BlogArticle::create($request->all());
 
         return 200;
     }
@@ -65,11 +63,7 @@ class BlogArticleController extends Controller
     {
         $blogArticle = BlogArticle::findOrFail($id);
 
-        $blogArticle
-            ->fill($request->all())
-            ->processRepeatersForSaving()
-            ->processImagesForSaving()
-            ->save();
+        $blogArticle->update($request->all());
 
             /**
          * Save categories
