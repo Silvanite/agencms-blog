@@ -2,15 +2,16 @@
 
 namespace Silvanite\AgencmsBlog\Handlers;
 
-use Illuminate\Support\Facades\Auth;
-use Gate;
-use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
 use Silvanite\Agencms\Route;
 use Silvanite\Agencms\Field;
 use Silvanite\Agencms\Group;
 use Silvanite\Agencms\Option;
-use Silvanite\Agencms\Relationship;
 use Silvanite\Brandenburg\Policy;
+use Silvanite\Agencms\Relationship;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
+use Silvanite\AgencmsBlog\BlogArticle;
+use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
 
 class AgencmsHandler
 {
@@ -61,6 +62,9 @@ class AgencmsHandler
                         ),
                         Field::related('categories', 'Categories')->multiple(10)->model(
                             Relationship::make('blog_category')
+                        ),
+                        Field::select('tags', 'Tags')->tags()->addOptions(
+                            BlogArticle::uniqueTags()
                         )
                     ),
                     Group::small('Attributes')->addField(

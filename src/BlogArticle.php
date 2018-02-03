@@ -26,19 +26,21 @@ class BlogArticle extends Model
         'meta_description',
         'author',
         'featuredimage',
+        'tags',
     ];
 
     protected $appends = [
-        'categories'
+        'categories',
     ];
 
     protected $casts = [
-        'content' => 'array'
+        'content' => 'array',
+        'tags' => 'array',
     ];
 
     protected $dates = [
         'published',
-        'expires'
+        'expires',
     ];
 
     /**
@@ -64,5 +66,15 @@ class BlogArticle extends Model
     public function getCategoriesAttribute()
     {
         return $this->attachedCategories->pluck(['id']);
+    }
+
+    /**
+     * Returns an array of dinstict tags used across all entries
+     *
+     * @return array
+     */
+    public static function uniqueTags()
+    {
+        return self::get(['tags'])->pluck('tags')->collapse()->unique()->sort()->all();
     }
 }
