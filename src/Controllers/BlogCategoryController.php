@@ -36,9 +36,7 @@ class BlogCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $blogCategory = BlogCategory::make($request->all());
-
-        $blogCategory->processImagesForSaving()->save();
+        BlogCategory::create($request->all());
 
         return 200;
     }
@@ -65,10 +63,7 @@ class BlogCategoryController extends Controller
     {
         $blogCategory = BlogCategory::findOrFail($id);
 
-        $blogCategory
-            ->fill($request->all())
-            ->processImagesForSaving()
-            ->save();
+        $blogCategory->update($request->all());
     }
 
     /**

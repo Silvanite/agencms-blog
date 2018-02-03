@@ -2,21 +2,12 @@
 
 namespace Silvanite\AgencmsBlog;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Database\Eloquent\Model;
 use Silvanite\AgencmsBlog\BlogCategory;
-use Silvanite\Agencms\Traits\HasRepeaterFields;
-use Silvanite\Agencms\Traits\HasImages;
-use App\User;
 
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
-
-class BlogArticle extends Model implements hasMedia
+class BlogArticle extends Model
 {
-    use HasMediaTrait, HasRepeaterFields, HasImages;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -33,7 +24,8 @@ class BlogArticle extends Model implements hasMedia
         'expires',
         'meta_title',
         'meta_description',
-        'author'
+        'author',
+        'featuredimage',
     ];
 
     protected $appends = [
@@ -47,19 +39,6 @@ class BlogArticle extends Model implements hasMedia
     protected $dates = [
         'published',
         'expires'
-    ];
-
-    public $images = [
-        'featuredimage'
-    ];
-
-    /**
-     * Declare the names of the content repeaters for processing
-     *
-     * @var array
-     */
-    public $repeaters = [
-        'content'
     ];
 
     /**
