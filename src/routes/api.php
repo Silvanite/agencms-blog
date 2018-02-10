@@ -17,16 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('agencms/blog')
-     ->namespace('Silvanite\AgencmsBlog\Controllers')
-     ->middleware(['api', 'cors'])
-     ->group(function() {
+    ->namespace('Silvanite\AgencmsBlog\Controllers')
+    ->middleware(['api', 'cors'])
+    ->group(function () {
         Route::resource('category', 'BlogCategoryController');
         Route::resource('article', 'BlogArticleController');
-        // Route::resource('users', 'UserController');
-        // Route::resource('policies', 'PolicyController');
-        // Route::post('login', 'LoginController@login');
-        // Route::get('authorize', [
-        //          'as' => 'login', 
-        //          'uses' => 'LoginController@required'
-        //        ]);
-     });
+    });

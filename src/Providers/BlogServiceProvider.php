@@ -2,18 +2,14 @@
 
 namespace Silvanite\AgencmsBlog\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Gate;
-use Route;
-use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
-
-use Silvanite\Brandenburg\Policy;
-use Silvanite\Brandenburg\Permission;
-
-use Silvanite\AgencmsBlog\Middleware\AgencmsConfig;
-
 use Illuminate\Routing\Router;
+use Silvanite\Brandenburg\Policy;
+use Illuminate\Support\Facades\Gate;
+use Silvanite\Brandenburg\Permission;
 use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Support\ServiceProvider;
+use Silvanite\AgencmsBlog\Middleware\AgencmsConfig;
+use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -55,9 +51,7 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../Config/agencms-blog.php', 'agencms-blog'
-        );
+        $this->mergeConfigFrom(__DIR__.'/../Config/agencms-blog.php', 'agencms-blog');
 
         $this->registerPermissions();
     }
@@ -80,17 +74,19 @@ class BlogServiceProvider extends ServiceProvider
     private function registerPermissions()
     {
         collect([
-            'blog_articles_read', 
-            'blog_articles_update', 
-            'blog_articles_create', 
+            'blog_articles_read',
+            'blog_articles_update',
+            'blog_articles_create',
             'blog_articles_delete',
-            'blog_categories_read', 
-            'blog_categories_update', 
-            'blog_categories_create', 
+            'blog_categories_read',
+            'blog_categories_update',
+            'blog_categories_create',
             'blog_categories_delete'
-        ])->map(function($permission) {
+        ])->map(function ($permission) {
             Gate::define($permission, function ($user) use ($permission) {
-                if ($this->nobodyHasAccess($permission)) return true;
+                if ($this->nobodyHasAccess($permission)) {
+                    return true;
+                }
 
                 return $user->hasRoleWithPermission($permission);
             });
@@ -106,7 +102,9 @@ class BlogServiceProvider extends ServiceProvider
      */
     private function nobodyHasAccess($permission)
     {
-        if (!$requestedPermission = Permission::find($permission)) return true;
+        if (!$requestedPermission = Permission::find($permission)) {
+            return true;
+        }
 
         return !$requestedPermission->hasUsers();
     }
