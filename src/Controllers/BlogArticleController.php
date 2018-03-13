@@ -1,10 +1,9 @@
 <?php
 
-namespace Silvanite\AgencmsBlog\Controllers;
+namespace Agencms\Blog\Controllers;
 
 use Illuminate\Http\Request;
-
-use Silvanite\AgencmsBlog\BlogArticle;
+use Agencms\Blog\BlogArticle;
 
 class BlogArticleController extends Controller
 {
@@ -65,7 +64,7 @@ class BlogArticleController extends Controller
 
         $blogArticle->update($request->all());
 
-            /**
+        /**
          * Save categories
          */
         $blogArticle->attachedCategories()->sync($request->get('categories'));

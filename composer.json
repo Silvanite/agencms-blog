@@ -1,5 +1,5 @@
 {
-    "name": "silvanite/agencms-blog",
+    "name": "agencms/blog",
     "description": "Agencms Blog Plugin",
     "authors": [
         {
@@ -15,13 +15,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Silvanite\\AgencmsBlog\\": "src/"
+            "Agencms\\Blog\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Silvanite\\AgencmsBlog\\Providers\\BlogServiceProvider"
+                "Agencms\\Blog\\Providers\\BlogServiceProvider"
             ]
         }
     }

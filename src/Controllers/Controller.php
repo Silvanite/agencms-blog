@@ -1,6 +1,6 @@
 <?php
 
-namespace Silvanite\AgencmsBlog\Controllers;
+namespace Agencms\Blog\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;

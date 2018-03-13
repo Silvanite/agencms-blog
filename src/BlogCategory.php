@@ -1,11 +1,10 @@
 <?php
 
-namespace Silvanite\AgencmsBlog;
+namespace Agencms\Blog;
 
-use Illuminate\Database\Eloquent\Model;
+use Agencms\Blog\BlogArticle;
 use Illuminate\Support\Facades\Gate;
-
-use BlogArticle;
+use Illuminate\Database\Eloquent\Model;
 
 class BlogCategory extends Model
 {

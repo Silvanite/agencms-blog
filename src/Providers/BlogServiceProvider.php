@@ -1,15 +1,15 @@
 <?php
 
-namespace Silvanite\AgencmsBlog\Providers;
+namespace Agencms\Blog\Providers;
 
 use Illuminate\Routing\Router;
 use Silvanite\Brandenburg\Policy;
+use Agencms\Core\Facades\Agencms;
 use Illuminate\Support\Facades\Gate;
 use Silvanite\Brandenburg\Permission;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
-use Silvanite\AgencmsBlog\Middleware\AgencmsConfig;
-use Silvanite\Agencms\Facades\ConfigFacade as Agencms;
+use Agencms\Blog\Middleware\AgencmsConfig;
 
 class BlogServiceProvider extends ServiceProvider
 {

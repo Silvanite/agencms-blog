@@ -1,10 +1,9 @@
 <?php
 
-namespace Silvanite\AgencmsBlog\Controllers;
+namespace Agencms\Blog\Controllers;
 
 use Illuminate\Http\Request;
-
-use Silvanite\AgencmsBlog\BlogCategory;
+use Agencms\Blog\BlogCategory;
 
 class BlogCategoryController extends Controller
 {
